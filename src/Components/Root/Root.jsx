@@ -6,7 +6,9 @@ const Root = () => {
     return (
         <div>
             <div className="pt-8" style={{ backgroundColor: 'rgba(254,245,238,255)' }}>   <Navbar></Navbar> </div>
-            <Outlet></Outlet>
+            <div className="" style={{ backgroundColor: 'rgba(254,245,238,255)' }}>
+                <Outlet></Outlet>
+            </div>
             <div style={{ backgroundColor: 'rgba(254,245,238,255)' }}>  <Footer></Footer> </div>
         </div>
     );

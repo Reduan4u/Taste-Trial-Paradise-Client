@@ -30,6 +30,8 @@ const Navbar = () => {
         <li><NavLink to="/allFood">All Food</NavLink></li>
         <li><NavLink to="/blog">Blog</NavLink></li>
         <li><NavLink to="/aboutUs">About Us</NavLink></li>
+        <li><NavLink to="/addFood">Add Food</NavLink></li>
+
     </>
     return (
         <div className="bg-white text-black w-11/12 m-auto rounded-lg">

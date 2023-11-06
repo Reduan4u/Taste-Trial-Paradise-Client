@@ -1,9 +1,14 @@
+import { Link } from "react-router-dom";
+import AllFood from "../../Pages/AllFood/AllFood";
 
 const TopFoods = () => {
     return (
         <div>
-            <h1>Our Top Foods</h1>
-
+            <AllFood>
+            </AllFood>
+            <div className="flex justify-center pb-10">
+                <Link to="allFood"> <button className="btn btn-active btn-secondary">See All Foods</button></Link>
+            </div>
         </div>
     );
 };
