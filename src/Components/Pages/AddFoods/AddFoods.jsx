@@ -5,7 +5,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 const AddFoods = () => {
 
     const { user } = useContext(AuthContext);
-    console.log(user);
+    //console.log(user);
     const email = user.email;
     const madeBy = user.displayName;
 
@@ -69,7 +69,7 @@ const AddFoods = () => {
                         </div>
                         <div>
                             <label className=" font-bold " >Add By</label>
-                            <input readOnly id="" type="text" placeholder={"Name: " + madeBy + " " + "Email: " + email} name="foodCook" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" />
+                            <input readOnly defaultValue={"Name: " + madeBy + " " + "Email: " + email} name="foodCook" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md font-semibold focus:border-blue-500 focus:outline-none focus:ring" />
                         </div>
 
                         <div>
