@@ -1,8 +1,11 @@
-import { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../../../Provider/AuthProvider";
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
+    const { user, logOut } = useAuth();
+    console.log(user);
+
     //Theme Setup
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
     useEffect(() => {
@@ -18,7 +21,6 @@ const Navbar = () => {
         }
     }
 
-    const { user, logOut } = useContext(AuthContext);
     const handleSignOut = () => {
         logOut()
             .then()
@@ -30,7 +32,6 @@ const Navbar = () => {
         <li><NavLink to="/allFood">All Food</NavLink></li>
         <li><NavLink to="/blog">Blog</NavLink></li>
         <li><NavLink to="/aboutUs">About Us</NavLink></li>
-        <li><NavLink to="/addFood">Add Food</NavLink></li>
 
     </>
     return (
@@ -41,7 +42,7 @@ const Navbar = () => {
                         <label tabIndex={0} className="btn btn-ghost lg:hidden ">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-48">
                             {links}
                         </ul>
                     </div>
@@ -56,7 +57,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end">
-                    {
+                    {/* {
                         user ?
                             <div className="flex justify-center items-center">
                                 <div className="block sm:flex md:flex lg:flex justify-center items-center">
@@ -87,7 +88,62 @@ const Navbar = () => {
                             <Link to="/logIn">
                                 <button onClick={handleSignOut} style={{ backgroundColor: "#FF444A" }} className="btn-xs sm:btn-sm md:btn-md lg:btn-lg btn btn-outline text-white  active:scale-95 transform transition-transform duration-200 ease-in-out">Log In</button>
                             </Link>
-                    }
+                    } */}
+
+                    {/* Nav End */}
+                    {user?.email ? (
+                        <div className="dropdown dropdown-end ">
+                            <label tabIndex={0} className="cursor-pointer">
+                                <div className="avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src={user.photoURL} />
+                                    </div>
+                                </div>
+                            </label>
+                            <div
+                                tabIndex={0}
+                                className="dropdown-content z-[11] menu p-2 shadow bg-base-100 rounded-box w-48"
+                            >
+                                <h1 className="px-4 py-2 font-bold text-right">{user.displayName}</h1>
+                                <NavLink
+                                    to="/addFood"
+                                    className="px-4 py-2 hover:bg-base-300 rounded-lg text-right"
+                                >
+                                    Add Food
+                                </NavLink>
+                                <NavLink
+                                    to="/myAddedFoods"
+                                    className="px-4 py-2 hover:bg-base-300 rounded-lg text-right"
+                                >
+                                    My Added Foods
+                                </NavLink>
+                                <NavLink
+                                    to="/myOrderedFoods"
+                                    className="px-4 py-2 hover:bg-base-300 rounded-lg text-right"
+                                >
+                                    My Ordered Foods
+                                </NavLink>
+
+                                <div
+                                    onClick={handleSignOut}
+                                    className="cursor-pointer  text-red-500 font-bold px-4 py-2 hover:bg-base-300 rounded-lg text-right"
+                                >
+                                    Logout
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        <NavLink
+                            to="/login"
+                            className={({ isActive }) =>
+                                isActive ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm'
+                            }
+                        >
+                            Login
+                        </NavLink>
+                    )}
+
+
 
 
                     <div className="">

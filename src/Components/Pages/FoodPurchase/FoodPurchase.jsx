@@ -14,13 +14,6 @@ const FoodPurchase = () => {
 
 
 
-    /* const { name, category, image, price, quantity, madeBy, foodOrigin, description, rating, tags } = foods || {}
-    const { user } = useContext(AuthContext);
-    console.log(name);
-    //console.log(user);
-    // const buyerName = user.displayName;
-    // const buyerEmail = user.email; */
-
     return (
         <div className="w-10/12 m-auto  py-10">
             <FoodPurchaseForm foods={foods}></FoodPurchaseForm>

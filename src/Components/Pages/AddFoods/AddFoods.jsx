@@ -6,8 +6,8 @@ const AddFoods = () => {
 
     const { user } = useContext(AuthContext);
     //console.log(user);
-    const email = user.email;
-    const madeBy = user.displayName;
+    const userEmail = user.email;
+    const userName = user.displayName;
 
     const handleAddFood = event => {
         event.preventDefault();
@@ -22,7 +22,7 @@ const AddFoods = () => {
         const addedFoodTags = form.foodTags.value;
         const addedFoodDescription = form.foodDescription.value;
 
-        const newFood = { name, category, foodOrigin, price, addedFoodRating, image, quantity, addedFoodTags, addedFoodDescription, email, madeBy };
+        const newFood = { name, category, foodOrigin, price, addedFoodRating, image, quantity, addedFoodTags, addedFoodDescription, userEmail, userName };
         console.log(newFood);
 
         fetch('http://localhost:5000/foods', {
@@ -68,13 +68,18 @@ const AddFoods = () => {
                             <input id="" type="text" placeholder="Food Origin" name="foodOrigin" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" />
                         </div>
                         <div>
-                            <label className=" font-bold " >Add By</label>
-                            <input readOnly defaultValue={"Name: " + madeBy + " " + "Email: " + email} name="foodCook" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md font-semibold focus:border-blue-500 focus:outline-none focus:ring" />
+                            <label className=" font-bold " >Add By (Name)</label>
+                            <input readOnly defaultValue={userName} name="userName" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md font-semibold focus:border-blue-500 focus:outline-none focus:ring" />
                         </div>
+                        <div>
+                            <label className=" font-bold " >Add By (Email)</label>
+                            <input readOnly defaultValue={userEmail} name="userEmail" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md font-semibold focus:border-blue-500 focus:outline-none focus:ring" />
+                        </div>
+
 
                         <div>
                             <label className=" font-bold " >Food Price</label>
-                            <input id="" type="number" name="foodPrice" placeholder="Food Price" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 focus:outline-none focus:ring" />
+                            <input id="" type="number" step="0.01" name="foodPrice" placeholder="Food Price" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 focus:outline-none focus:ring" />
                         </div>
                         <div>
                             <label className=" font-bold " >Food Rating</label>

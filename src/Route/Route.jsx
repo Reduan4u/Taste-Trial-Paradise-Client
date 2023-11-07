@@ -11,6 +11,8 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import AddFoods from "../Components/Pages/AddFoods/AddFoods";
 import SingleFood from "../Components/Pages/SingleFood/SingleFood";
 import FoodPurchase from "../Components/Pages/FoodPurchase/FoodPurchase";
+import UserAddedFoods from "../Components/Pages/userAddedFoods/userAddedFoods";
+import UserOrderedFoods from "../Components/Pages/UserOrderedFoods/UserOrderedFoods";
 
 const Route = createBrowserRouter([
     {
@@ -38,16 +40,24 @@ const Route = createBrowserRouter([
             },
             {
                 path: '/:name/:_id',
-                element: <FoodPurchase></FoodPurchase>,
+                element: <PrivateRoute><FoodPurchase></FoodPurchase></PrivateRoute>,
                 loader: () => fetch("http://localhost:5000/foods")
             },
             {
                 path: '/addFood',
-                element: <AddFoods></AddFoods>
+                element: <PrivateRoute><AddFoods></AddFoods></PrivateRoute>,
+            },
+            {
+                path: '/myAddedFoods',
+                element: <PrivateRoute><UserAddedFoods></UserAddedFoods></PrivateRoute>,
+            },
+            {
+                path: '/myOrderedFoods',
+                element: <PrivateRoute><UserOrderedFoods></UserOrderedFoods></PrivateRoute>,
             },
             {
                 path: '/blog',
-                element: <PrivateRoute><Blog></Blog></PrivateRoute>
+                element: <Blog></Blog>
             },
             {
                 path: '/logIn',

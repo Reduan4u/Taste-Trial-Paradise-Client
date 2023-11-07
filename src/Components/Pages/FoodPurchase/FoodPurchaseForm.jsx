@@ -1,45 +1,118 @@
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const FoodPurchaseForm = ({ foods }) => {
+    const { user } = useContext(AuthContext);
+    const buyerName = user.displayName;
+    const buyerEmail = user.email;
+
+    const { name, category, image, price, userEmail, quantity, foodOrigin, description, rating, tags } = foods || {}
+    //console.log(selectedFood);
+
+
+    // Date 
+    const [buyingDate, setBuyingDate] = useState('');
+    useEffect(() => {
+        const currentDate = new Date().toISOString().split('T')[0];
+        setBuyingDate(currentDate);
+    }, []);
+
+    // Add to cart
+    const handleOrder = e => {
+        e.preventDefault();
+        const form = e.target;
+        const purchasedQuantityString = form.foodQuantity.value;
+        const purchasedQuantity = parseInt(purchasedQuantityString);
+        const quantityInt = parseInt(quantity);
+        const selectedFood = { name, category, image, price, quantity, userEmail, foodOrigin, description, rating, tags, purchasedQuantityString, buyerEmail, buyerName }
+
+
+        if (buyerEmail === userEmail) {
+            Swal.fire({
+                icon: "error",
+                title: "Sorry...",
+                text: "You can't order your added foods",
+                footer: '<a href="#">Try other foods</a>'
+            }); return
+        } else if (purchasedQuantity > quantityInt) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Available stock quantity is crossed",
+                footer: '<a href="#">Reduce the Quantity, and Try Again</a>'
+            });
+        } else {
+
+            fetch('http://localhost:5000/orderedFoods', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(selectedFood)
+            })
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Product Added to Cart Successfully',
+                showConfirmButton: false,
+                timer: 1500
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+
+                })
+        }
+    }
 
 
     return (
         <div>
             <div className="max-w-4xl p-6 mx-auto bg-base-300  bg-opacity-85 rounded-md shadow-md ">
-                <h2 className=" font-semibold capitalize text-center text-4xl mb-10 ">Ordering {name}</h2>
+                <h2 className=" font-semibold capitalize text-center text-4xl mb-10 ">Ordering: <strong className="underline underline-offset-4">{name}</strong></h2>
 
-                <form >
+                <form onSubmit={handleOrder} >
                     <div className="  ">
                         <div className="">
                             <label className=" font-bold">Food Name</label>
-                            <input id="" name="foodName" defaultValue={name} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500  focus:outline-none focus:ring" />
+                            <input name="foodName" readOnly defaultValue={name} className="font-semibold block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500  focus:outline-none focus:ring" />
                         </div>
 
                         <div>
                             <label className=" font-bold " >Buyer Name</label>
-                            <input readOnly id="" type="text" placeholder={""} name="foodCook" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" />
+                            <input readOnly defaultValue={buyerName} name="foodCook" className="font-semibold block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" />
                         </div>
                         <div>
                             <label className=" font-bold " >Buyer Email</label>
-                            <input readOnly id="" type="text" placeholder={""} name="foodCook" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" />
+                            <input readOnly defaultValue={buyerEmail} name="foodCook" className="font-semibold block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" />
                         </div>
-
                         <div>
                             <label className=" font-bold " >Food Price</label>
-                            <input id="" type="number" name="foodPrice" placeholder="Food Price" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 focus:outline-none focus:ring" />
+                            <input name="foodPrice" defaultValue={price} className=" font-semibold block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 focus:outline-none focus:ring" />
                         </div>
                         <div>
-                            <label className=" font-bold " >Food Photo</label>
-                            <input id="" type="text" name="foodPhoto" placeholder="Food Photo URL" className="w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 focus:outline-none focus:ring" />
-
+                            <label className=" font-bold " >Food Available Quantity</label>
+                            <input name="foodAvailableQuantity" defaultValue={quantity} className=" font-semibold block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 focus:outline-none focus:ring" />
                         </div>
+
                         <div>
                             <label className=" font-bold " >Food Quantity</label>
-                            <input id="" type="number" name="foodQuantity" placeholder="Food Quantity" className="w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 focus:outline-none focus:ring" />
+                            <input id="" required type="number" name="foodQuantity" placeholder="Food Quantity" className="w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md  focus:border-blue-500 focus:outline-none focus:ring" />
+                        </div>
 
+                        <div>
+                            <label className="font-bold">Buying Date</label>
+                            <input
+                                name="buyingDate"
+                                value={buyingDate}
+                                onChange={(e) => setBuyingDate(e.target.value)}
+                                className="w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring"
+                                type="date"
+                            />
                         </div>
 
                     </div>
-
                     <div className="flex justify-center mt-6">
                         <button className="px-6 py-2 leading-5 text-black font-bold transition-colors bg-green-400 duration-200 transform  rounded-md hover:bg-pink-400 focus:outline-none focus:bg-red-4 00 uppercase w-full">Order Food</button>
                     </div>

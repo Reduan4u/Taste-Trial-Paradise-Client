@@ -30,7 +30,8 @@ const LogIn = () => {
                     icon: 'success',
                     title: 'Login Successful',
                     showConfirmButton: false,
-                    timer: 1000
+                    timer: 1000,
+
                 });
             })
             .catch(error => {
