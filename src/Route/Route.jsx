@@ -61,6 +61,8 @@ const Route = createBrowserRouter([
             {
                 path: '/myOrderedFoods',
                 element: <PrivateRoute><UserOrderedFoods></UserOrderedFoods></PrivateRoute>,
+                loader: () => fetch("http://localhost:5000/orderedFoods")
+
             },
             {
                 path: '/blog',

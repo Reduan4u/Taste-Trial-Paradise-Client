@@ -26,8 +26,8 @@ const UserAddedFoods = () => {
                     }
                 </div>
                 :
-                (<div className="">
-                    <h1 className="text-5xl col-span-3  mb-10 text-center">Product Available Soon...</h1>
+                (<div className="py-20">
+                    <h1 className="text-5xl col-span-3  mb-10 text-center">You Have not added any Food yet...</h1>
                     <Link to="/addFood">
                         <a rel="noopener noreferrer" href="#" className="px-8 btn flex w-1/5 m-auto py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Add Foods</a></Link>
                 </div>
