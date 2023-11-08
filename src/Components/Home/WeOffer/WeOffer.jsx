@@ -16,7 +16,8 @@ const WeOffer = () => {
                         <img src="https://cafeu.vercel.app/img/icon/3-1.png" alt="" />
                         <h3 className="my-3 text-3xl font-semibold text-center">Fresh Food</h3>
                         <div className="space-y-1 leadi">
-                            <p className="text-center">Lorem ipsum dolor sit amet, consect adisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+                            <p className="text-center">At Taste Trail Paradise, freshness is our foundation. We source the finest, locally sourced ingredients to ensure every dish bursts with flavor.
+                            </p>
                             <p className="underline text-center text-yellow-500">See More</p>
                         </div>
                     </div>
@@ -25,7 +26,8 @@ const WeOffer = () => {
                         <img src="https://cafeu.vercel.app/img/icon/3-2.png" alt="" />
                         <h3 className="my-3 text-3xl font-semibold text-center">Delicious Dishes</h3>
                         <div className="space-y-1 leadi">
-                            <p className="text-center">Lorem ipsum dolor sit amet, consect adisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+                            <p className="text-center">Indulge your senses in a symphony of flavors with our delicious dishes. Crafted by skilled chefs, each creation is a masterpiece, designed to delight your taste buds.
+                            </p>
                             <p className="underline text-center text-yellow-500">See More</p>
                         </div>
                     </div>
@@ -34,7 +36,8 @@ const WeOffer = () => {
                         <img src="https://cafeu.vercel.app/img/icon/3-3.png" alt="" />
                         <h3 className="my-3 text-3xl font-semibold text-center">Gourmet Experience</h3>
                         <div className="space-y-1 leadi">
-                            <p className="text-center">Lorem ipsum dolor sit amet, consect adisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+                            <p className="text-center">Embark on a culinary journey that transcends the ordinary – a gourmet experience at Taste Trail Paradise. Our chefs artfully blend premium ingredients to create dishes that redefine sophistication.
+                            </p>
                             <p className="underline text-center text-yellow-500">See More</p>
                         </div>
                     </div>
@@ -43,7 +46,8 @@ const WeOffer = () => {
                         <img src="https://cafeu.vercel.app/img/icon/3-4.png" alt="" />
                         <h3 className="my-3 text-3xl font-semibold text-center">Farm-to Freshness</h3>
                         <div className="space-y-1 leadi">
-                            <p className="text-center">Lorem ipsum dolor sit amet, consect adisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+                            <p className="text-center">Experience the essence of farm-to-table dining at Taste Trail Paradise . Our commitment to freshness goes beyond taste.
+                            </p>
                             <p className="underline text-center text-yellow-500">See More</p>
                         </div>
                     </div>
@@ -52,7 +56,8 @@ const WeOffer = () => {
                         <img src="https://cafeu.vercel.app/img/icon/3-5.png" alt="" />
                         <h3 className="my-3 text-3xl font-semibold text-center">Mouthwater Culinary</h3>
                         <div className="space-y-1 leadi">
-                            <p className="text-center">Lorem ipsum dolor sit amet, consect adisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+                            <p className="text-center">Prepare your taste buds for a mouthwatering adventure. Our culinary creations are a celebration of diverse flavors and textures, meticulously combined to leave you craving more.
+                            </p>
                             <p className="underline text-center text-yellow-500">See More</p>
                         </div>
                     </div>
@@ -61,7 +66,7 @@ const WeOffer = () => {
                         <img src="https://cafeu.vercel.app/img/icon/3-1.png" alt="" />
                         <h3 className="my-3 text-3xl font-semibold text-center">Exquisite Delights</h3>
                         <div className="space-y-1 leadi">
-                            <p className="text-center">Lorem ipsum dolor sit amet, consect adisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+                            <p className="text-center">At Taste Trail Paradise, we believe dining should be a feast for the senses. Our menu is a treasure trove of exquisite delights, from delicately crafted appetizers to decadent desserts.</p>
                             <p className="underline text-center text-yellow-500">See More</p>
                         </div>
                     </div>

@@ -6,21 +6,43 @@ import './Pagination.css'
 const AllFood = () => {
     const [foods, setFoods] = useState([]);
     const { count } = useLoaderData();
-    //console.log(count);
+
+    // pagination
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(9);
     const numberOfPages = Math.ceil(count / itemsPerPage);
-
     const pages = [...Array(numberOfPages).keys()].map((page) => page + 1);
+
+    // search and filter
+    const [searchTerm, setSearchTerm] = useState("");
+    const [priceFilter, setPriceFilter] = useState(null);
+    const [countryFilter, setCountryFilter] = useState("");
+    const [sortOrder, setSortOrder] = useState(""); // Possible values: "", "asc", "desc"
+
+
 
 
     useEffect(() => {
+        fetch(`https://taste-trial-paradise-server.vercel.app/foods?page=${currentPage - 1}&size=${itemsPerPage}&price=${priceFilter}&country=${countryFilter}&search=${searchTerm}&sortOrder=${sortOrder}`)
+            .then((res) => res.json())
+            .then((data) => setFoods(data));
+    }, [currentPage, itemsPerPage, countryFilter, priceFilter, searchTerm, sortOrder])
 
-        fetch(`https://taste-trial-paradise-server.vercel.app/foods?page=${currentPage - 1}&size=${itemsPerPage}`)
-            .then(res => res.json())
-            .then(data => setFoods(data))
+    const filteredFoods = foods.filter((food) => {
+        const meetsPriceFilter = parseFloat(food.price) <= parseFloat(priceFilter) || !priceFilter;
+        const meetsCountryFilter = food.foodOrigin.toLowerCase().includes(countryFilter.toLowerCase()) || !countryFilter;
+        return meetsPriceFilter && meetsCountryFilter;
+    })
+        .sort((a, b) => {
+            if (sortOrder === "asc") {
+                return parseFloat(a.price) - parseFloat(b.price);
+            } else if (sortOrder === "desc") {
+                return parseFloat(b.price) - parseFloat(a.price);
+            } else {
+                return 0;
+            }
+        });
 
-    }, [currentPage, itemsPerPage])
 
     const handleItemsPerPage = e => {
         const val = parseInt(e.target.value);
@@ -91,13 +113,55 @@ const AllFood = () => {
             </div>
 
 
-            <div className="w-10/12 m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-10">
-                {
-                    foods.map(food => <FoodCards key={food._id} food={food} ></FoodCards>)
-                }
+
+            {/* Filter */}
+            <div className="w-10/12 m-auto flex mb-4 flex-wrap gap-2 justify-center items-center">
+                <input
+                    type="text"
+                    placeholder="Search by Food Name"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="p-2 border border-gray-200  rounded-lg "
+                />
+                <input
+                    type="number"
+                    placeholder="Max Price"
+                    value={priceFilter}
+                    onChange={(e) => setPriceFilter(e.target.value)}
+                    className="p-2 border border-gray-200 rounded-lg "
+                />
+                <input
+                    type="text"
+                    placeholder="Search by Country"
+                    value={countryFilter}
+                    onChange={(e) => setCountryFilter(e.target.value)}
+                    className="p-2 border border-gray-200 rounded-lg "
+                />
+                <select
+                    value={sortOrder}
+                    onChange={(e) => setSortOrder(e.target.value)}
+                    className="p-2 border border-gray-200 rounded-lg "
+                >
+                    <option value="">Sort by Price</option>
+                    <option value="asc">Low to High</option>
+                    <option value="desc">High to Low</option>
+                </select>
             </div>
+
+
+            <div className="w-10/12 m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-10">
+                {filteredFoods.length === 0 ? (
+                    <p className="text-center col-span-3 text-red-500 font-bold text-4xl">No matching food found!</p>
+                ) : (
+                    filteredFoods.map((food) => (
+                        <FoodCards key={food._id} food={food}></FoodCards>
+                    ))
+                )}
+            </div>
+
+            {/* Pagination */}
             <div className='pagination'>
-                <p>Current page: {currentPage}</p>
+
                 <button onClick={handlePrevPage}><svg viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-5">
                     <polyline points="15 18 9 12 15 6"></polyline>
                 </svg></button>

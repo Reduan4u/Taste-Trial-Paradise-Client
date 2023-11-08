@@ -11,6 +11,7 @@ const TopFoods = () => {
             .then(data => setFoods(data))
     }, [])
 
+
     const topFoods = foods.filter(food => food.quantity > 0)
         .slice(0, 6);
 

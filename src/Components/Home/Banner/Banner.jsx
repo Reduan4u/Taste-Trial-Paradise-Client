@@ -7,7 +7,7 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 const Banner = () => {
     return (
         <div className='mb-10'>
-            <AutoplaySlider play={true} cancelOnInteraction={false} interval={3000}>
+            <AutoplaySlider play={true} cancelOnInteraction={false} interval={300000}>
 
                 {/* 1st Slider */}
                 <div className="relative " style={{ backgroundImage: 'url(https://cafeu.vercel.app/_next/static/media/banner-bg.563b99ab.jpg)', backgroundSize: '100%' }}>
@@ -15,7 +15,7 @@ const Banner = () => {
                         <div className="lg:flex-1 md:flex-1 flex flex-col justify-center items-center lg:items-start md:items-start text-center lg:text-start md:text-start ">
                             <p className="text-sm sm:text-md md:text-lg lg:text-xl font-medium text-black">Best in <strong className='text-red-600'>Taste Trial Paradise</strong></p>
                             <h1 className="mb-1 md:mb-5 lg:mb-5 text-sm  sm:text-2xl md:text-3xl lg:text-5xl font-bold text-black">BBQ Chicken <strong className='text-red-600'>Salad</strong> with Creamy Avocado</h1>
-                            <p className='text-black text-xs md:text-lg lg:text-2xl w-full'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem perferendis dignissimos magni repellendus.</p>
+                            <p className='text-black text-xs md:text-lg lg:text-2xl w-full'>Indulge in a burst of flavors with our signature BBQ Chicken Salad, elevated to perfection with creamy avocado.</p>
 
                             <Link to="/allFood"><button className="btn btn-error mt-1 md:mt-4 lg:mt-4 btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-red-600 text-white hover:bg-red-500">Menu</button>
                             </Link>
@@ -32,7 +32,7 @@ const Banner = () => {
                         <div className="lg:flex-1 md:flex-1 flex flex-col justify-center items-center lg:items-start md:items-start text-center lg:text-start md:text-start ">
                             <p className="text-sm sm:text-md md:text-lg lg:text-xl font-medium text-black">Best in <strong className='text-red-600'>Taste Trial Paradise</strong></p>
                             <h1 className="mb-1 md:mb-5 lg:mb-5 text-sm  sm:text-2xl md:text-3xl lg:text-5xl font-bold text-black">Asian Lettuce Wrap<strong className='text-red-600'> Chicken</strong> Chopped Salad</h1>
-                            <p className='text-black text-xs md:text-lg lg:text-2xl w-full'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem perferendis dignissimos magni repellendus.</p>
+                            <p className='text-black text-xs md:text-lg lg:text-2xl w-full'>Introducing our delectable Asian Lettuce Wrap Chicken Chopped Salad!We take pride in crafting a fusion of flavors that delight your taste buds.</p>
 
                             <Link to="/allFood"><button className="btn btn-error mt-1 md:mt-4 lg:mt-4 btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-red-600 text-white hover:bg-red-500">Menu</button>
                             </Link>
@@ -49,7 +49,7 @@ const Banner = () => {
                         <div className="lg:flex-1 md:flex-1 flex flex-col justify-center items-center lg:items-start md:items-start text-center lg:text-start md:text-start ">
                             <p className="text-sm sm:text-md md:text-lg lg:text-xl font-medium text-black">Best in <strong className='text-red-600'>Taste Trial Paradise</strong></p>
                             <h1 className="mb-1 md:mb-5 lg:mb-5 text-sm  sm:text-2xl md:text-3xl lg:text-5xl font-bold text-black">Different <strong className='text-red-600'>Spice</strong>For A Different Taste</h1>
-                            <p className='text-black text-xs md:text-lg lg:text-2xl w-full'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem perferendis dignissimos magni repellendus.</p>
+                            <p className='text-black text-xs md:text-lg lg:text-2xl w-full'>Join us and embark on a flavorful journey where every dish is an exploration of different spices and a promise of a unique taste that will leave your taste buds delighted.</p>
 
                             <Link to="/allFood"><button className="btn btn-error mt-1 md:mt-4 lg:mt-4 btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-red-600 text-white hover:bg-red-500">Menu</button>
                             </Link>

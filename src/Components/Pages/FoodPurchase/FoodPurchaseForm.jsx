@@ -27,7 +27,7 @@ const FoodPurchaseForm = ({ foods }) => {
         const quantityInt = parseInt(quantity);
         const selectedFood = { name, category, image, price, quantity, userEmail, foodOrigin, description, rating, tags, purchasedQuantityString, buyerEmail, buyerName }
 
-        const url = `https://taste-trial-paradise-server.vercel.app/orderedFoods?email=${user?.email}`;
+        //const url = `https://taste-trial-paradise-server.vercel.app/orderedFoods?email=${user?.email}`;
 
         if (buyerEmail === userEmail) {
             Swal.fire({
