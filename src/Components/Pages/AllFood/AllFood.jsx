@@ -15,16 +15,14 @@ const AllFood = () => {
 
 
     return (
-
         <div>
             <div>
-                <h1 className="text-center py-10 text-5xl">Our All Foods</h1>
+                <h1 className="text-center py-10 text-2xl md:text-4xl lg:text-6xl">Our All Foods</h1>
             </div>
-            <div className=" w-10/12 m-auto grid grid-cols-3 gap-4 pb-10">
+            <div className="w-10/12 m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-10">
                 {
                     foods.map(food => <FoodCards key={food._id} food={food} ></FoodCards>)
                 }
-
             </div>
         </div>
     );

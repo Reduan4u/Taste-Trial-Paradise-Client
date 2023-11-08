@@ -27,6 +27,7 @@ const FoodPurchaseForm = ({ foods }) => {
         const quantityInt = parseInt(quantity);
         const selectedFood = { name, category, image, price, quantity, userEmail, foodOrigin, description, rating, tags, purchasedQuantityString, buyerEmail, buyerName }
 
+        const url = `http://localhost:5000/orderedFoods?email=${user?.email}`;
 
         if (buyerEmail === userEmail) {
             Swal.fire({
@@ -35,22 +36,33 @@ const FoodPurchaseForm = ({ foods }) => {
                 text: "You can't order your added foods",
                 footer: '<a href="#">Try other foods</a>'
             }); return
-        } else if (purchasedQuantity > quantityInt) {
+        } else if (quantityInt === 0) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "The Product is not available",
+                footer: '<a href="#">Please try again later</a>'
+            });
+        }
+        else if (purchasedQuantity > quantityInt) {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
                 text: "Available stock quantity is crossed",
                 footer: '<a href="#">Reduce the Quantity, and Try Again</a>'
             });
-        } else {
+        }
+        else {
 
             fetch('http://localhost:5000/orderedFoods', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(selectedFood)
+                body: JSON.stringify(selectedFood),
             })
+
+
             Swal.fire({
                 position: 'top-center',
                 icon: 'success',

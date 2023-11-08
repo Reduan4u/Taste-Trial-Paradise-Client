@@ -35,7 +35,7 @@ const Navbar = () => {
 
     </>
     return (
-        <div className="bg-white text-black w-11/12 m-auto rounded-lg">
+        <div className="bg-base-100 w-11/12 m-auto rounded-lg">
             <div className="navbar max-w-6xl mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown ">
@@ -47,7 +47,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="">
-                        <h1 className=" text-center font-mono text-2xl font-bold text-red-500 flex-1 ">Taste Trial <br /> Paradise 🍔</h1>
+                        <h1 className=" text-center font-mono text-2xl font-bold text-red-500 flex-1 "><span className="hidden md:flex lg:flex">Taste Trial <br /> Paradise 🍔</span> <span className="flex md:hidden lg:hidden">TTP🍔</span></h1>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
