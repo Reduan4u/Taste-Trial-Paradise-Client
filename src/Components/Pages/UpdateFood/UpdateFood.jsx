@@ -25,7 +25,7 @@ const UpdateFood = () => {
         const updatedFood = { name, category, foodOrigin, price, rating, image, quantity, tags, description, userEmail, madeBy };
         // console.log(updatedFood);
 
-        fetch(`http://localhost:5000/foods/${_id}`, {
+        fetch(`https://taste-trial-paradise-server.vercel.app/foods/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -25,7 +25,7 @@ const AddFoods = () => {
         const newFood = { name, category, foodOrigin, price, rating, image, quantity, tags, description, userEmail, madeBy };
         console.log(newFood);
 
-        fetch('http://localhost:5000/foods', {
+        fetch('https://taste-trial-paradise-server.vercel.app/foods', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

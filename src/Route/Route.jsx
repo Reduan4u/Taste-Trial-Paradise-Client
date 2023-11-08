@@ -32,17 +32,17 @@ const Route = createBrowserRouter([
             {
                 path: '/allFood',
                 element: <AllFood></AllFood>,
-                loader: () => fetch("http://localhost:5000/foods")
+                loader: () => fetch("https://taste-trial-paradise-server.vercel.app/foods")
             },
             {
                 path: '/:category/:name/:_id',
                 element: <SingleFood></SingleFood>,
-                loader: () => fetch("http://localhost:5000/foods")
+                loader: () => fetch("https://taste-trial-paradise-server.vercel.app/foods")
             },
             {
                 path: '/:name/:_id',
                 element: <PrivateRoute><FoodPurchase></FoodPurchase></PrivateRoute>,
-                loader: () => fetch("http://localhost:5000/foods")
+                loader: () => fetch("https://taste-trial-paradise-server.vercel.app/foods")
             },
             {
                 path: '/addFood',
@@ -51,18 +51,17 @@ const Route = createBrowserRouter([
             {
                 path: '/myAddedFoods',
                 element: <PrivateRoute><UserAddedFoods></UserAddedFoods></PrivateRoute>,
-                loader: () => fetch("http://localhost:5000/foods")
+                loader: () => fetch("https://taste-trial-paradise-server.vercel.app/foods")
             },
             {
                 path: '/:name/:id/update',
                 element: <PrivateRoute><UpdateFood></UpdateFood></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`)
+                loader: ({ params }) => fetch(`https://taste-trial-paradise-server.vercel.app/foods/${params.id}`)
             },
             {
                 path: '/myOrderedFoods',
                 element: <PrivateRoute><UserOrderedFoods></UserOrderedFoods></PrivateRoute>,
-                loader: () => fetch("http://localhost:5000/orderedFoods")
-
+                loader: () => fetch("https://taste-trial-paradise-server.vercel.app/orderedFoods")
             },
             {
                 path: '/blog',

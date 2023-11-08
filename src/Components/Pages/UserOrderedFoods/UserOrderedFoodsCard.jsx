@@ -16,7 +16,7 @@ const UserOrderedFoodsCard = ({ userOrderedFood, userOrderedFoods, setUserOrdere
             confirmButtonText: 'Yes, Remove it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/orderedFoods/${_id}`, {
+                fetch(`https://taste-trial-paradise-server.vercel.app/orderedFoods/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

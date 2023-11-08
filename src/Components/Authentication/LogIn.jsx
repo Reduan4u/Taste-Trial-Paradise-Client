@@ -26,14 +26,15 @@ const LogIn = () => {
             .then(result => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
-                const user = { email };
-                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
-                    .then(res => {
-                        console.log(res.data);
-                        if (res.data.success) {
-                            Navigate(location?.state ? location.state : '/')
-                        }
-                    })
+                Navigate(location?.state ? location.state : '/')
+                // const user = { email };
+                //axios.post('https://taste-trial-paradise-server.vercel.app/jwt', user, { withCredentials: true })
+                /* .then(res => {
+                    console.log(res.data);
+                    if (res.data.success) {
+                        Navigate(location?.state ? location.state : '/')
+                    }
+                }) */
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -141,12 +142,13 @@ const LogIn = () => {
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
                                 </div>
-                                <button onClick={handleGoogle}
-                                    className=" w-full mt-3 btn btn-primary flex gap-2  hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
-                                    <img className="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo" />
-                                    <span>LogIn with Google</span>
-                                </button>
+
                             </form>
+                            <button onClick={handleGoogle}
+                                className=" w-full mt-3 btn btn-primary flex gap-2  hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
+                                <img className="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo" />
+                                <span>LogIn with Google</span>
+                            </button>
                             {
                                 signInError && <p className="text-center text-red-600 pb-4">Invalid User Email and Password
                                 </p>

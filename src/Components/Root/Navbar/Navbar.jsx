@@ -92,6 +92,7 @@ const Navbar = () => {
 
                     {/* Nav End */}
                     {user?.email ? (
+                        console.log(user),
                         <div className="dropdown dropdown-end ">
                             <label tabIndex={0} className="cursor-pointer">
                                 <div className="avatar">
