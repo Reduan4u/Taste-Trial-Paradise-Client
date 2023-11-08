@@ -47,7 +47,7 @@ const UserOrderedFoodsCard = ({ userOrderedFood, userOrderedFoods, setUserOrdere
                             <div className="flex flex-wrap justify-between w-full pb-2 space-x-2">
                                 <div className="space-y-1">
                                     <h3 className=" text-xl md:text-3xl lg:text-4xl sm:text-2xl font-semibold leadi sm:pr-8">{name}</h3>
-                                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl dark:text-gray-400">{category}</p>
+                                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl">{category}</p>
                                 </div>
                                 <div className="text-right">
                                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-left"><strong className="text-pink-500">{quantity} X {price}.00$</strong> </p>                                </div>

@@ -81,8 +81,8 @@ const FoodPurchaseForm = ({ foods }) => {
 
     return (
         <div>
-            <div className="max-w-4xl p-6 mx-auto bg-base-300  bg-opacity-85 rounded-md shadow-md ">
-                <h2 className=" font-semibold capitalize text-center text-4xl mb-10 ">Ordering: <strong className="underline underline-offset-4">{name}</strong></h2>
+            <div className="max-w-4xl p-6 mx-auto bg-base-200  rounded-md shadow-md ">
+                <h2 className=" font-semibold capitalize text-center text-4xl mb-10 ">Ordering: <strong className="underline underline-offset-4 text-yellow-500">{name}</strong></h2>
 
                 <form onSubmit={handleOrder} >
                     <div className="  ">
@@ -119,14 +119,14 @@ const FoodPurchaseForm = ({ foods }) => {
                                 name="buyingDate"
                                 value={buyingDate}
                                 onChange={(e) => setBuyingDate(e.target.value)}
-                                className="w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring"
+                                className="w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring"
                                 type="date"
                             />
                         </div>
 
                     </div>
                     <div className="flex justify-center mt-6">
-                        <button className="px-6 py-2 leading-5 text-black font-bold transition-colors bg-green-400 duration-200 transform  rounded-md hover:bg-pink-400 focus:outline-none focus:bg-red-4 00 uppercase w-full">Order Food</button>
+                        <button className="px-6 py-2 leading-5 text-black font-bold transition-colors bg-yellow-400 duration-200 transform  rounded-md hover:bg-yellow-600 focus:outline-none focus:bg-red-4 00 uppercase w-full">Order Food</button>
                     </div>
                 </form>
             </div>

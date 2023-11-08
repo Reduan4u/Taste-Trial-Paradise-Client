@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -5,28 +6,19 @@ const Footer = () => {
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3">
                     <a rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 lg:justify-start">
-                        <div className="flex items-center justify-center w-12 h-12 rounded-full ">
-                            <img src="" alt="" />
+                        <div className="flex items-center justify-center w-3/4 m-auto rounded-full ">
+                            <img src="https://i.ibb.co/DWsM0t7/1.png" alt="" />
                         </div>
-                        <h1 className=" text-center font-mono text-2xl font-bold text-red-500 flex-1 ">Taste Trial <br /> Paradise 🍔</h1>
                     </a>
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
                     <div className="space-y-3">
                         <h3 className="tracki uppercase ">Product</h3>
                         <ul className="space-y-1">
-                            <li>
-                                <a rel="noopener noreferrer" href="#">Features</a>
-                            </li>
-                            <li>
-                                <a rel="noopener noreferrer" href="#">Integrations</a>
-                            </li>
-                            <li>
-                                <a rel="noopener noreferrer" href="#">Pricing</a>
-                            </li>
-                            <li>
-                                <a rel="noopener noreferrer" href="#">FAQ</a>
-                            </li>
+                            <li><NavLink to="/">Home</NavLink></li>
+                            <li><NavLink to="/allFood">All Food</NavLink></li>
+                            <li><NavLink to="/blog">Blog</NavLink></li>
+                            <li><NavLink to="/contact">Contact</NavLink></li>
                         </ul>
                     </div>
                     <div className="space-y-3">

@@ -15,7 +15,7 @@ const FoodPurchase = () => {
 
 
     return (
-        <div className="w-10/12 m-auto  py-10">
+        <div className="w-10/12 m-auto py-10">
             <FoodPurchaseForm foods={foods}></FoodPurchaseForm>
         </div>
     );
