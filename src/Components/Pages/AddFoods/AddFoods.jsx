@@ -50,6 +50,8 @@ const AddFoods = () => {
 
     return (
         <div className="">
+            <div>
+            </div>
             <div className="max-w-4xl p-6 mx-auto bg-base-300 rounded-md shadow-md">
                 <h2 className=" font-semibold capitalize text-center text-4xl mb-10">ADD FOOD</h2>
 

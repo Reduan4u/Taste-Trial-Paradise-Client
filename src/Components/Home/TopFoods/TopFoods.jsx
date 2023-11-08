@@ -14,8 +14,7 @@ const TopFoods = () => {
 
     return (
         <div>
-            {/* <AllFood>
-            </AllFood> */}
+
             <div>
                 <h1 className="text-center py-10 text-5xl">Our Top Foods</h1>
             </div>
