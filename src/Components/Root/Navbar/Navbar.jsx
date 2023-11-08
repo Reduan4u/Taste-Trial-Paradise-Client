@@ -47,7 +47,9 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="">
-                        <h1 className=" text-center font-mono text-2xl font-bold text-red-500 flex-1 "><span className="hidden md:flex lg:flex">Taste Trial <br /> Paradise 🍔</span> <span className="flex md:hidden lg:hidden">TTP🍔</span></h1>
+                        {/* <h1 className=" text-center font-mono text-2xl font-bold text-red-500 flex-1 "><span className="hidden md:flex lg:flex">Taste Trial <br /> Paradise 🍔</span> <span className="flex md:hidden lg:hidden">TTP🍔</span>
+                        </h1> */}
+                        <img src="https://i.ibb.co/DWsM0t7/1.png" className="w-56" alt="" />
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -57,46 +59,13 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end">
-                    {/* {
-                        user ?
-                            <div className="flex justify-center items-center">
-                                <div className="block sm:flex md:flex lg:flex justify-center items-center">
-                                    {
-                                        user.photoURL ?
-                                            <div className="avatar flex justify-center items-center">
-                                                <div className="w-4 sm:w-6 md:w-8 lg:w-10 rounded-full">
-                                                    <img src={user.photoURL} />
-                                                </div>
-                                                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-center">{user.displayName}</p>
 
-                                            </div>
-                                            :
-                                            <div className="avatar flex justify-center items-center">
-                                                <div className="w-4 sm:w-6 md:w-8 lg:w-10 inline-block">
-                                                    <img className="" src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" />
-                                                </div>
-                                                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-center">{user.displayName}</p>
-
-                                            </div>
-                                    }
-                                </div>
-
-                                <button onClick={handleSignOut} style={{ backgroundColor: "#FF444A" }} className=" btn-xs sm:btn-sm md:btn-md lg:btn-lg btn text-white  active:scale-95 transform transition-transform duration-200 ease-in-out">Sign Out</button>
-                            </div>
-
-                            :
-                            <Link to="/logIn">
-                                <button onClick={handleSignOut} style={{ backgroundColor: "#FF444A" }} className="btn-xs sm:btn-sm md:btn-md lg:btn-lg btn btn-outline text-white  active:scale-95 transform transition-transform duration-200 ease-in-out">Log In</button>
-                            </Link>
-                    } */}
-
-                    {/* Nav End */}
                     {user?.email ? (
                         console.log(user),
                         <div className="dropdown dropdown-end ">
                             <label tabIndex={0} className="cursor-pointer">
                                 <div className="avatar">
-                                    <div className="w-10 rounded-full">
+                                    <div className="w-6 sm:w-8 md:w-10 lg:w-10 h-6 sm:h-8 md:h-10 lg:h-10 rounded-full">
                                         <img src={user.photoURL} />
                                     </div>
                                 </div>

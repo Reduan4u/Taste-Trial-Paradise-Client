@@ -1,8 +1,12 @@
-# React + Vite
+# Taste Trial Paradise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Client Site Link: [https://taste-trial-paradise.web.app/]
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Top 5 main Features of This Project:
+- Search and Pagination functionality available.
+- Private route necessary for ordering foods and adding to cart.
+- User can add foods and will show it through the database.
+- Google authentication available, user can log in through Email as well.
+- Dark/Light mood on interface available.
+- User friendly and easy to manage.

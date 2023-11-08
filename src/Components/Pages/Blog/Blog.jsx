@@ -1,8 +1,8 @@
 
 const Blog = () => {
     return (
-        <div className="py-20">
-            <div className="w-3/4 m-auto p-4 overflow-hidden  shadow bg-base-100">
+        <div className="py-10 rounded-lg">
+            <div className="w-3/4 m-auto p-4 overflow-hidden shadow bg-base-100">
                 <article>
                     <h2 className="text-xl font-bold">1. What is One way data binding?
                     </h2>
