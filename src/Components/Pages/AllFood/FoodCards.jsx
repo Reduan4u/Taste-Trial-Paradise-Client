@@ -22,7 +22,7 @@ const FoodCards = ({ food }) => {
 
     return (
         <div className="card  bg-base-100 shadow-xl">
-            <figure><img src={image} alt="Shoes" /></figure>
+            <figure className="pt-4"><img className="h-40 w-40 rounded-full " src={image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">
                     {name}

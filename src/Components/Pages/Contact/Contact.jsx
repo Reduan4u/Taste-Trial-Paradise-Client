@@ -1,9 +1,9 @@
 
 const Contact = () => {
     return (
-        <div className="w-10/12 m-auto py-10 rounded-lg">
+        <div className="w-10/12 m-auto py-10 ">
 
-            <div className="grid grid-cols-1 gap-8 px-8 py-16 mx-auto md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 bg-base-100  ">
+            <div className="grid grid-cols-1 gap-8 px-8 py-16 mx-auto md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 bg-base-100 rounded-lg ">
                 <div className="flex flex-col justify-between">
                     <div className="py-6 md:py-0 md:px-6 flex flex-col justify-center items-center text-">
                         <h1 className="text-4xl font-bold">Contact Us</h1>

@@ -1,18 +1,44 @@
 import { useEffect, useState } from "react";
 import FoodCards from "./FoodCards";
+import { useLoaderData } from "react-router-dom";
+import './Pagination.css'
 
 const AllFood = () => {
     const [foods, setFoods] = useState([]);
+    const { count } = useLoaderData();
+    //console.log(count);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(9);
+    const numberOfPages = Math.ceil(count / itemsPerPage);
 
+    const pages = [...Array(numberOfPages).keys()].map((page) => page + 1);
 
 
     useEffect(() => {
-        fetch("https://taste-trial-paradise-server.vercel.app/foods")
+        fetch(`https://taste-trial-paradise-server.vercel.app/foods?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => setFoods(data))
 
-    }, [])
+    }, [currentPage, itemsPerPage])
 
+    const handleItemsPerPage = e => {
+        const val = parseInt(e.target.value);
+        console.log(val);
+        setItemsPerPage(val);
+        setCurrentPage(1);
+    }
+
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    }
+
+    const handleNextPage = () => {
+        if (currentPage < pages.length) {
+            setCurrentPage(currentPage + 1);
+        }
+    }
 
     return (
         <div>
@@ -62,6 +88,32 @@ const AllFood = () => {
             <div>
                 <h1 className="text-center py-10 text-2xl md:text-4xl lg:text-6xl">Our All Foods</h1>
             </div>
+
+            <div className='pagination'>
+                <p>Current page: {currentPage}</p>
+                <button onClick={handlePrevPage}><svg viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-5">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg></button>
+                {
+                    pages.map(page => <button
+                        className={currentPage === page ? 'selected' : undefined}
+                        onClick={() => setCurrentPage(page)}
+                        key={page}
+                    >{page}</button>)
+                }
+                <button
+                    onClick={handleNextPage}><svg viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-5">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg></button>
+
+                <select className="bg-yellow-400" value={itemsPerPage} onChange={handleItemsPerPage} name="" id="">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+
             <div className="w-10/12 m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-10">
                 {
                     foods.map(food => <FoodCards key={food._id} food={food} ></FoodCards>)

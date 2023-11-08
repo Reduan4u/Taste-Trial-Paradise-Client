@@ -1,6 +1,6 @@
 # Taste Trial Paradise
 
-Client Site Link: [https://taste-trial-paradise.web.app/]
+Live Site Link: [https://taste-trial-paradise.web.app/]
 
 
 Top 5 main Features of This Project:

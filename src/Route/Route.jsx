@@ -27,13 +27,9 @@ const Route = createBrowserRouter([
                 element: <Home></Home>,
             },
             {
-                path: '/contact',
-                element: <Contact></Contact>,
-            },
-            {
                 path: '/allFood',
                 element: <AllFood></AllFood>,
-                loader: () => fetch("https://taste-trial-paradise-server.vercel.app/foods")
+                loader: () => fetch("https://taste-trial-paradise-server.vercel.app/foodsCount")
             },
             {
                 path: '/:category/:name/:_id',
@@ -66,7 +62,11 @@ const Route = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <Blog></Blog>
+                element: <PrivateRoute><Blog></Blog></PrivateRoute>,
+            },
+            {
+                path: '/contact',
+                element: <Contact></Contact>,
             },
             {
                 path: '/logIn',

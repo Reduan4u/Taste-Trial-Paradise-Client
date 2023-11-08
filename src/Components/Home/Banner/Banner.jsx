@@ -7,7 +7,7 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 const Banner = () => {
     return (
         <div className='mb-10'>
-            <AutoplaySlider play={true} cancelOnInteraction={false} interval={300000}>
+            <AutoplaySlider play={true} cancelOnInteraction={false} interval={3000}>
 
                 {/* 1st Slider */}
                 <div className="relative " style={{ backgroundImage: 'url(https://cafeu.vercel.app/_next/static/media/banner-bg.563b99ab.jpg)', backgroundSize: '100%' }}>

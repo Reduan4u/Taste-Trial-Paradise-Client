@@ -1,0 +1,21 @@
+.selected {
+    background-color: rgb(232, 200, 142);
+
+}
+
+.pagination {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.pagination button {
+    margin: 0 5px;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: black;
+    color: white
+}
+
+.pagination .selected {
+    background-color: rgba(255, 217, 0, 0.863);
+}
