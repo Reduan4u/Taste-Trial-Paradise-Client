@@ -15,7 +15,8 @@ const AllFood = () => {
 
 
     useEffect(() => {
-        fetch(`https://taste-trial-paradise-server.vercel.app/foods?page=${currentPage}&size=${itemsPerPage}`)
+
+        fetch(`https://taste-trial-paradise-server.vercel.app/foods?page=${currentPage - 1}&size=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => setFoods(data))
 
@@ -89,6 +90,12 @@ const AllFood = () => {
                 <h1 className="text-center py-10 text-2xl md:text-4xl lg:text-6xl">Our All Foods</h1>
             </div>
 
+
+            <div className="w-10/12 m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-10">
+                {
+                    foods.map(food => <FoodCards key={food._id} food={food} ></FoodCards>)
+                }
+            </div>
             <div className='pagination'>
                 <p>Current page: {currentPage}</p>
                 <button onClick={handlePrevPage}><svg viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-5">
@@ -112,12 +119,6 @@ const AllFood = () => {
                     <option value="20">20</option>
                     <option value="50">50</option>
                 </select>
-            </div>
-
-            <div className="w-10/12 m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-10">
-                {
-                    foods.map(food => <FoodCards key={food._id} food={food} ></FoodCards>)
-                }
             </div>
         </div>
     );

@@ -11,6 +11,9 @@ const TopFoods = () => {
             .then(data => setFoods(data))
     }, [])
 
+    const topFoods = foods.filter(food => food.quantity > 0)
+        .slice(0, 6);
+
 
     return (
         <div>
@@ -21,7 +24,7 @@ const TopFoods = () => {
 
             <div className=" w-10/12 m-auto grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 pb-10">
                 {
-                    foods.map(food => <FoodCards key={food._id} food={food} ></FoodCards>)
+                    topFoods.map(food => <FoodCards key={food._id} food={food} ></FoodCards>)
                 }
             </div>
 
