@@ -31,7 +31,7 @@ const Navbar = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/allFood">All Food</NavLink></li>
         <li><NavLink to="/blog">Blog</NavLink></li>
-        <li><NavLink to="/aboutUs">About Us</NavLink></li>
+        <li><NavLink to="/contact">Contact</NavLink></li>
 
     </>
     return (

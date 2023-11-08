@@ -3,7 +3,7 @@ import Root from "../Components/Root/Root";
 import ErrorPage from "../Components/Root/ErrorPage/ErrorPage";
 import Home from "../Components/Home/Home";
 import SignUp from "../Components/Authentication/SignUp";
-import AboutUs from "../Components/Pages/AboutUs/AboutUs";
+import AboutUs from "../Components/Pages/Contact/Contact";
 import AllFood from "../Components/Pages/AllFood/AllFood";
 import Blog from "../Components/Pages/Blog/Blog";
 import LogIn from "../Components/Authentication/LogIn";
@@ -14,6 +14,7 @@ import FoodPurchase from "../Components/Pages/FoodPurchase/FoodPurchase";
 import UserAddedFoods from "../Components/Pages/userAddedFoods/userAddedFoods";
 import UserOrderedFoods from "../Components/Pages/UserOrderedFoods/UserOrderedFoods";
 import UpdateFood from "../Components/Pages/UpdateFood/UpdateFood";
+import Contact from "../Components/Pages/Contact/Contact";
 
 const Route = createBrowserRouter([
     {
@@ -26,8 +27,8 @@ const Route = createBrowserRouter([
                 element: <Home></Home>,
             },
             {
-                path: '/aboutUs',
-                element: <AboutUs></AboutUs>,
+                path: '/contact',
+                element: <Contact></Contact>,
             },
             {
                 path: '/allFood',
