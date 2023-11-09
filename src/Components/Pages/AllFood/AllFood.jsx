@@ -31,7 +31,8 @@ const AllFood = () => {
     const filteredFoods = foods.filter((food) => {
         const meetsPriceFilter = parseFloat(food.price) <= parseFloat(priceFilter) || !priceFilter;
         const meetsCountryFilter = food.foodOrigin.toLowerCase().includes(countryFilter.toLowerCase()) || !countryFilter;
-        return meetsPriceFilter && meetsCountryFilter;
+        const meetsSearchFilter = food.name.toLowerCase().includes(searchTerm.toLowerCase()) || !searchTerm;
+        return meetsPriceFilter && meetsCountryFilter && meetsSearchFilter;
     })
         .sort((a, b) => {
             if (sortOrder === "asc") {
@@ -42,7 +43,6 @@ const AllFood = () => {
                 return 0;
             }
         });
-
 
     const handleItemsPerPage = e => {
         const val = parseInt(e.target.value);
