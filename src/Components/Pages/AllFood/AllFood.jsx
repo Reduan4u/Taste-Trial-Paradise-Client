@@ -6,6 +6,7 @@ import './Pagination.css'
 const AllFood = () => {
     const [foods, setFoods] = useState([]);
     const { count } = useLoaderData();
+    console.log(foods);
 
     // pagination
     const [currentPage, setCurrentPage] = useState(1);
@@ -17,16 +18,14 @@ const AllFood = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [priceFilter, setPriceFilter] = useState(null);
     const [countryFilter, setCountryFilter] = useState("");
-    const [sortOrder, setSortOrder] = useState(""); // Possible values: "", "asc", "desc"
-
-
+    const [sortOrder, setSortOrder] = useState("");
 
 
     useEffect(() => {
-        fetch(`https://taste-trial-paradise-server.vercel.app/foods?page=${currentPage - 1}&size=${itemsPerPage}&price=${priceFilter}&country=${countryFilter}&search=${searchTerm}&sortOrder=${sortOrder}`)
+        fetch(`https://taste-trial-paradise-server.vercel.app/foods?page=${currentPage - 1}&size=${itemsPerPage}`)
             .then((res) => res.json())
             .then((data) => setFoods(data));
-    }, [currentPage, itemsPerPage, countryFilter, priceFilter, searchTerm, sortOrder])
+    }, [currentPage, itemsPerPage])
 
     const filteredFoods = foods.filter((food) => {
         const meetsPriceFilter = parseFloat(food.price) <= parseFloat(priceFilter) || !priceFilter;
@@ -43,6 +42,7 @@ const AllFood = () => {
                 return 0;
             }
         });
+
 
     const handleItemsPerPage = e => {
         const val = parseInt(e.target.value);

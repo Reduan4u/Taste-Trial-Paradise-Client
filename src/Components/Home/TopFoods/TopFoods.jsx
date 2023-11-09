@@ -20,7 +20,7 @@ const TopFoods = () => {
         <div>
 
             <div>
-                <h1 className="text-center py-10 text-5xl">Our Top Foods</h1>
+                <h1 className="text-center py-10 text-5xl text-black font-bold">Our Top Foods</h1>
             </div>
 
             <div className=" w-10/12 m-auto grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 pb-10">
