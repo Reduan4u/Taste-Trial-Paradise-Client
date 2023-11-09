@@ -58,7 +58,7 @@ const Route = createBrowserRouter([
             {
                 path: '/myOrderedFoods',
                 element: <PrivateRoute><UserOrderedFoods></UserOrderedFoods></PrivateRoute>,
-                loader: () => fetch("https://taste-trial-paradise-server.vercel.app/orderedFoods")
+                loader: () => fetch("https://taste-trial-paradise-server.vercel.app/orderedFoods", { credentials: "include" })
             },
             {
                 path: '/blog',

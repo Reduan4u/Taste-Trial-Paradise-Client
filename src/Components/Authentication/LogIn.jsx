@@ -27,14 +27,14 @@ const LogIn = () => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
                 Navigate(location?.state ? location.state : '/')
-                // const user = { email };
-                //axios.post('https://taste-trial-paradise-server.vercel.app/jwt', user, { withCredentials: true })
-                /* .then(res => {
-                    console.log(res.data);
-                    if (res.data.success) {
-                        Navigate(location?.state ? location.state : '/')
-                    }
-                }) */
+                const user = { email };
+                axios.post('https://taste-trial-paradise-server.vercel.app/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.success) {
+                            Navigate(location?.state ? location.state : '/')
+                        }
+                    })
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
